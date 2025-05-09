@@ -1,16 +1,14 @@
+import { type Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
-import type { Config } from "tailwindcss"
-import { fontFamily } from "tailwindcss/defaultTheme"
-
-const config = {
+export default {
   darkMode: ["class"],
   content: [
-    './pages/**/*.{ts,tsx}',
-    './components/**/*.{ts,tsx}',
-    './app/**/*.{ts,tsx}',
-    './src/**/*.{ts,tsx}',
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -21,8 +19,8 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", ...fontFamily.sans],
-        playfair: ["Playfair Display", ...fontFamily.serif],
+        sans: ["Inter var", ...fontFamily.sans],
+        playfair: ["Playfair Display", "serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -58,7 +56,6 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        // Custom colors for the sidebar.
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
@@ -68,18 +65,6 @@ const config = {
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
-        },
-        indigo: {
-          DEFAULT: "#4B0082",
-          900: "#2D0152",
-          800: "#3A0066",
-          700: "#4B0082",
-          600: "#5D009E",
-          500: "#6F00BA",
-          400: "#8C00ED",
-          300: "#9B87F5",
-          200: "#B29DFF",
-          100: "#D6BCFA",
         },
       },
       borderRadius: {
@@ -96,14 +81,22 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "spin-slow": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "spin-slow-reverse": {
+          "0%": { transform: "rotate(360deg)" },
+          "100%": { transform: "rotate(0deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "spin-slow": "spin-slow 90s linear infinite",
+        "spin-slow-reverse": "spin-slow-reverse 60s linear infinite",
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
-} satisfies Config
-
-export default config
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
+} satisfies Config;

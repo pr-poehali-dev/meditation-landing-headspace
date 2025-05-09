@@ -1,41 +1,54 @@
-
-import React from 'react';
-import Icon from '@/components/ui/icon';
+import React from "react";
+import Icon from "@/components/ui/icon";
 
 const FEATURES = [
   {
-    icon: 'Brain',
-    title: 'Осознанная медитация',
-    description: 'Различные техники медитации для осознанности, концентрации и расслабления',
+    icon: "Brain",
+    title: "Осознанная медитация",
+    description:
+      "Различные техники медитации для осознанности, концентрации и расслабления",
   },
   {
-    icon: 'Moon',
-    title: 'Истории для сна',
-    description: 'Расслабляющие истории, которые помогут вам быстрее заснуть и улучшить качество сна',
+    icon: "Moon",
+    title: "Истории для сна",
+    description:
+      "Расслабляющие истории, которые помогут вам быстрее заснуть и улучшить качество сна",
   },
   {
-    icon: 'Wind',
-    title: 'Дыхательные практики',
-    description: 'Простые техники дыхания для снятия стресса и тревоги в любой ситуации',
+    icon: "Wind",
+    title: "Дыхательные практики",
+    description:
+      "Простые техники дыхания для снятия стресса и тревоги в любой ситуации",
   },
   {
-    icon: 'Music',
-    title: 'Успокаивающие звуки',
-    description: 'Коллекция звуков природы и расслабляющей музыки для создания спокойной атмосферы',
+    icon: "Music",
+    title: "Успокаивающие звуки",
+    description:
+      "Коллекция звуков природы и расслабляющей музыки для создания спокойной атмосферы",
   },
   {
-    icon: 'CalendarCheck',
-    title: 'Ежедневные практики',
-    description: 'Короткие упражнения, которые помогут внедрить медитацию в вашу повседневную жизнь',
+    icon: "CalendarCheck",
+    title: "Ежедневные практики",
+    description:
+      "Короткие упражнения, которые помогут внедрить медитацию в вашу повседневную жизнь",
   },
   {
-    icon: 'BarChart',
-    title: 'Отслеживание прогресса',
-    description: 'Наглядная статистика для наблюдения за результатами ваших практик и достижениями',
+    icon: "BarChart",
+    title: "Отслеживание прогресса",
+    description:
+      "Наглядная статистика для наблюдения за результатами ваших практик и достижениями",
   },
 ];
 
-const FeatureCard = ({ icon, title, description }: { icon: string; title: string; description: string }) => (
+const FeatureCard = ({
+  icon,
+  title,
+  description,
+}: {
+  icon: string;
+  title: string;
+  description: string;
+}) => (
   <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-300/30 transition-all duration-300 hover:bg-white/10 group">
     <div className="mb-5 inline-block p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300">
       <Icon name={icon} size={28} className="text-purple-300" />
@@ -54,13 +67,14 @@ const FeatureSection = () => {
             Особенности нашего приложения
           </h2>
           <p className="text-white/80 text-lg">
-            Мы создали комплексное решение для улучшения вашего ментального здоровья и общего благополучия
+            Мы создали комплексное решение для улучшения вашего ментального
+            здоровья и общего благополучия
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {FEATURES.map((feature, index) => (
-            <FeatureCard 
+            <FeatureCard
               key={index}
               icon={feature.icon}
               title={feature.title}
@@ -69,16 +83,47 @@ const FeatureSection = () => {
           ))}
         </div>
       </div>
-      
-      {/* Background decorative elements */}
-      <div 
-        className="absolute right-0 top-10 w-72 h-72 bg-purple-600/30 rounded-full filter blur-3xl opacity-20"
-        style={{ transform: 'translate(20%, -20%)' }}
-      />
-      <div 
-        className="absolute left-0 bottom-10 w-80 h-80 bg-indigo-900/30 rounded-full filter blur-3xl opacity-20"
-        style={{ transform: 'translate(-20%, 20%)' }}
-      />
+
+      {/* Star constellation dots and lines */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
+        <svg width="100%" height="100%" className="absolute top-0 left-0">
+          <g stroke="rgba(255,255,255,0.2)" strokeWidth="0.5">
+            <line x1="10%" y1="20%" x2="30%" y2="15%" />
+            <line x1="30%" y1="15%" x2="45%" y2="30%" />
+            <line x1="45%" y1="30%" x2="65%" y2="10%" />
+            <line x1="65%" y1="10%" x2="80%" y2="30%" />
+            <line x1="15%" y1="60%" x2="35%" y2="70%" />
+            <line x1="35%" y1="70%" x2="55%" y2="65%" />
+            <line x1="55%" y1="65%" x2="70%" y2="80%" />
+            <line x1="80%" y1="60%" x2="65%" y2="45%" />
+            <line x1="65%" y1="45%" x2="45%" y2="50%" />
+            <line x1="45%" y1="50%" x2="25%" y2="40%" />
+          </g>
+          {[
+            [10, 20],
+            [30, 15],
+            [45, 30],
+            [65, 10],
+            [80, 30],
+            [15, 60],
+            [35, 70],
+            [55, 65],
+            [70, 80],
+            [80, 60],
+            [65, 45],
+            [45, 50],
+            [25, 40],
+          ].map(([x, y], i) => (
+            <circle
+              key={i}
+              cx={`${x}%`}
+              cy={`${y}%`}
+              r={1 + Math.random() * 2}
+              fill="white"
+            />
+          ))}
+        </svg>
+      </div>
     </section>
   );
 };

@@ -99,3 +99,32 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+    width: 0;
+  }
+  30% {
+    width: 100px;
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) translateY(300px);
+    opacity: 0;
+    width: 0;
+  }
+}
+
+@keyframes pulse-star {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.3);
+  }
+}
