@@ -25,7 +25,7 @@ const AnimatedCircles = () => {
         x: canvas.width * 0.5,
         y: canvas.height * 0.5,
         radius: canvas.width * 0.2,
-        color: "#9B87F5",
+        color: "#facc15", // Yellow 400
         pulseSpeed: 0.01,
         pulseAmount: 20,
         phase: 0,
@@ -34,7 +34,7 @@ const AnimatedCircles = () => {
         x: canvas.width * 0.65,
         y: canvas.height * 0.35,
         radius: canvas.width * 0.1,
-        color: "#D6BCFA",
+        color: "#fef08a", // Yellow 200
         pulseSpeed: 0.015,
         pulseAmount: 15,
         phase: Math.PI / 3,
@@ -43,7 +43,7 @@ const AnimatedCircles = () => {
         x: canvas.width * 0.35,
         y: canvas.height * 0.65,
         radius: canvas.width * 0.12,
-        color: "#4B0082",
+        color: "#ca8a04", // Yellow 700
         pulseSpeed: 0.02,
         pulseAmount: 10,
         phase: Math.PI / 1.5,
@@ -52,7 +52,7 @@ const AnimatedCircles = () => {
         x: canvas.width * 0.75,
         y: canvas.height * 0.65,
         radius: canvas.width * 0.08,
-        color: "#8B5CF6",
+        color: "#eab308", // Yellow 500
         pulseSpeed: 0.025,
         pulseAmount: 8,
         phase: Math.PI,
@@ -61,7 +61,7 @@ const AnimatedCircles = () => {
         x: canvas.width * 0.25,
         y: canvas.height * 0.3,
         radius: canvas.width * 0.06,
-        color: "#7E69AB",
+        color: "#f59e0b", // Amber 500
         pulseSpeed: 0.03,
         pulseAmount: 5,
         phase: Math.PI / 2,
@@ -83,8 +83,8 @@ const AnimatedCircles = () => {
 
         // Star glow effect
         const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius * 3);
-        gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
-        gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+        gradient.addColorStop(0, "rgba(254, 240, 138, 0.8)"); // Yellow 200
+        gradient.addColorStop(1, "rgba(254, 240, 138, 0)");
 
         ctx.beginPath();
         ctx.arc(x, y, radius * 3, 0, Math.PI * 2);
@@ -94,7 +94,7 @@ const AnimatedCircles = () => {
         // Star core
         ctx.beginPath();
         ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.8)";
+        ctx.fillStyle = "rgba(254, 240, 138, 0.8)";
         ctx.fill();
       }
 

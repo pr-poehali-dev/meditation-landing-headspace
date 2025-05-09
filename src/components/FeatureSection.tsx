@@ -49,12 +49,12 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-300/30 transition-all duration-300 hover:bg-white/10 group">
-    <div className="mb-5 inline-block p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300">
-      <Icon name={icon} size={28} className="text-purple-300" />
+  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 hover:bg-white/10 group">
+    <div className="mb-5 inline-block p-3 bg-yellow-500/20 rounded-lg group-hover:bg-yellow-500/30 transition-colors duration-300">
+      <Icon name={icon} size={28} className="text-yellow-300" />
     </div>
-    <h3 className="text-xl font-playfair font-bold text-white mb-2">{title}</h3>
-    <p className="text-white/70">{description}</p>
+    <h3 className="text-xl font-heading font-bold text-white mb-2">{title}</h3>
+    <p className="text-white/70 font-sans">{description}</p>
   </div>
 );
 
@@ -63,10 +63,10 @@ const FeatureSection = () => {
     <section className="py-16 md:py-24 relative" id="features">
       <div className="container mx-auto px-4">
         <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-playfair font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4">
             Особенности нашего приложения
           </h2>
-          <p className="text-white/80 text-lg">
+          <p className="text-white/80 text-lg font-sans">
             Мы создали комплексное решение для улучшения вашего ментального
             здоровья и общего благополучия
           </p>
@@ -119,7 +119,7 @@ const FeatureSection = () => {
               cx={`${x}%`}
               cy={`${y}%`}
               r={1 + Math.random() * 2}
-              fill="white"
+              fill="#facc15"
             />
           ))}
         </svg>
