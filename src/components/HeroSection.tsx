@@ -17,55 +17,27 @@ const HeroSection = ({ scrollY }: HeroSectionProps) => {
 
   return (
     <section className="relative min-h-screen pt-24 pb-16 flex items-center overflow-hidden">
-      {/* Animated stars - larger shooting stars */}
+      {/* Фоновые волнистые элементы */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(5)].map((_, i) => {
-          const top = Math.random() * 100;
-          const left = Math.random() * 100;
-          const duration = 3 + Math.random() * 7;
-          const delay = Math.random() * 5;
-          const size = 1 + Math.random() * 2;
-
-          return (
-            <div
-              key={i}
-              className="absolute h-px bg-yellow-300"
-              style={{
-                top: `${top}%`,
-                left: `${left}%`,
-                width: `${size}px`,
-                boxShadow: "0 0 4px 2px rgba(250, 204, 21, 0.7)",
-                animation: `shooting-star ${duration}s ${delay}s infinite linear`,
-              }}
-            />
-          );
-        })}
-      </div>
-
-      {/* Small pulsing stars */}
-      <div className="absolute inset-0">
-        {[...Array(20)].map((_, i) => {
-          const top = Math.random() * 100;
-          const left = Math.random() * 100;
-          const duration = 2 + Math.random() * 3;
-          const delay = Math.random() * 5;
-          const size = 2 + Math.random() * 3;
-
-          return (
-            <div
-              key={i}
-              className="absolute rounded-full bg-yellow-200"
-              style={{
-                top: `${top}%`,
-                left: `${left}%`,
-                width: `${size}px`,
-                height: `${size}px`,
-                boxShadow: "0 0 4px 2px rgba(254, 240, 138, 0.3)",
-                animation: `pulse-star ${duration}s ${delay}s infinite ease-in-out`,
-              }}
-            />
-          );
-        })}
+        {[...Array(3)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute rounded-full opacity-20"
+            style={{
+              width: `${500 + i * 200}px`,
+              height: `${500 + i * 200}px`,
+              top: `${30 + i * 20}%`,
+              left: `${20 + i * 20}%`,
+              backgroundColor:
+                i % 2 === 0
+                  ? "rgba(129, 140, 248, 0.3)"
+                  : "rgba(167, 139, 250, 0.3)",
+              filter: "blur(80px)",
+              transform: `translateY(${Math.sin(i) * 10}px)`,
+              animation: `float ${10 + i * 5}s infinite ease-in-out`,
+            }}
+          />
+        ))}
       </div>
 
       <div
@@ -73,7 +45,7 @@ const HeroSection = ({ scrollY }: HeroSectionProps) => {
         className="absolute bottom-0 left-0 w-full h-64 z-0 opacity-20"
         style={{
           backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23facc15' fill-opacity='1' d='M0,224L48,208C96,192,192,160,288,160C384,160,480,192,576,202.7C672,213,768,203,864,186.7C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E\")",
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%238b5cf6' fill-opacity='1' d='M0,224L48,208C96,192,192,160,288,160C384,160,480,192,576,202.7C672,213,768,203,864,186.7C960,171,1056,149,1152,149.3C1248,149,1344,171,1392,181.3L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E\")",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
@@ -84,7 +56,7 @@ const HeroSection = ({ scrollY }: HeroSectionProps) => {
           <div className="w-full md:w-1/2 mb-12 md:mb-0">
             <h1 className="text-4xl md:text-6xl font-heading font-bold text-white mb-6 leading-tight">
               Найдите свой{" "}
-              <span className="text-yellow-300">внутренний покой</span> в
+              <span className="text-purple-300">внутренний покой</span> в
               повседневной суете
             </h1>
             <p className="text-lg md:text-xl text-white/80 mb-8 max-w-lg font-sans">
@@ -92,7 +64,7 @@ const HeroSection = ({ scrollY }: HeroSectionProps) => {
               расслабиться, снять стресс и обрести гармонию.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-black text-lg py-6 font-sans">
+              <Button className="bg-purple-600 hover:bg-purple-700 text-white text-lg py-6 font-sans">
                 Начать бесплатно
               </Button>
               <Button

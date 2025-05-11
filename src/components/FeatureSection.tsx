@@ -49,9 +49,9 @@ const FeatureCard = ({
   title: string;
   description: string;
 }) => (
-  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-yellow-400/30 transition-all duration-300 hover:bg-white/10 group">
-    <div className="mb-5 inline-block p-3 bg-yellow-500/20 rounded-lg group-hover:bg-yellow-500/30 transition-colors duration-300">
-      <Icon name={icon} size={28} className="text-yellow-300" />
+  <div className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-400/30 transition-all duration-300 hover:bg-white/10 group">
+    <div className="mb-5 inline-block p-3 bg-purple-500/20 rounded-lg group-hover:bg-purple-500/30 transition-colors duration-300">
+      <Icon name={icon} size={28} className="text-purple-300" />
     </div>
     <h3 className="text-xl font-heading font-bold text-white mb-2">{title}</h3>
     <p className="text-white/70 font-sans">{description}</p>
@@ -84,44 +84,35 @@ const FeatureSection = () => {
         </div>
       </div>
 
-      {/* Star constellation dots and lines */}
+      {/* Декоративные волнистые линии */}
       <div className="absolute inset-0 w-full h-full overflow-hidden opacity-30 pointer-events-none">
-        <svg width="100%" height="100%" className="absolute top-0 left-0">
-          <g stroke="rgba(255,255,255,0.2)" strokeWidth="0.5">
-            <line x1="10%" y1="20%" x2="30%" y2="15%" />
-            <line x1="30%" y1="15%" x2="45%" y2="30%" />
-            <line x1="45%" y1="30%" x2="65%" y2="10%" />
-            <line x1="65%" y1="10%" x2="80%" y2="30%" />
-            <line x1="15%" y1="60%" x2="35%" y2="70%" />
-            <line x1="35%" y1="70%" x2="55%" y2="65%" />
-            <line x1="55%" y1="65%" x2="70%" y2="80%" />
-            <line x1="80%" y1="60%" x2="65%" y2="45%" />
-            <line x1="65%" y1="45%" x2="45%" y2="50%" />
-            <line x1="45%" y1="50%" x2="25%" y2="40%" />
-          </g>
-          {[
-            [10, 20],
-            [30, 15],
-            [45, 30],
-            [65, 10],
-            [80, 30],
-            [15, 60],
-            [35, 70],
-            [55, 65],
-            [70, 80],
-            [80, 60],
-            [65, 45],
-            [45, 50],
-            [25, 40],
-          ].map(([x, y], i) => (
-            <circle
-              key={i}
-              cx={`${x}%`}
-              cy={`${y}%`}
-              r={1 + Math.random() * 2}
-              fill="#facc15"
-            />
-          ))}
+        <svg
+          className="absolute bottom-0 left-0 w-full"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0,0 C150,90 350,0 500,100 C650,200 750,0 900,80 C1050,160 1200,40 1200,40 V120 H0 V0 Z"
+            fill="url(#gradient1)"
+            opacity="0.2"
+          ></path>
+          <path
+            d="M0,40 C150,130 350,40 500,140 C650,240 750,40 900,120 C1050,200 1200,80 1200,80 V120 H0 V40 Z"
+            fill="url(#gradient2)"
+            opacity="0.2"
+          ></path>
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#a78bfa" />
+              <stop offset="100%" stopColor="#8b5cf6" />
+            </linearGradient>
+            <linearGradient id="gradient2" x1="100%" y1="0%" x2="0%" y2="0%">
+              <stop offset="0%" stopColor="#c4b5fd" />
+              <stop offset="100%" stopColor="#a78bfa" />
+            </linearGradient>
+          </defs>
         </svg>
       </div>
     </section>

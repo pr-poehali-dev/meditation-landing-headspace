@@ -1,8 +1,7 @@
+import { type Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
-import plugin from "tailwindcss/plugin";
-import type { Config } from "tailwindcss";
 
-const config = {
+export default {
   darkMode: ["class"],
   content: [
     "./pages/**/*.{ts,tsx}",
@@ -10,7 +9,6 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  prefix: "",
   theme: {
     container: {
       center: true,
@@ -20,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
+        heading: ["Montserrat", ...fontFamily.sans],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -61,18 +63,14 @@ const config = {
           "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
           accent: "hsl(var(--sidebar-accent))",
           "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          ring: "hsl(var(--sidebar-ring))",
           border: "hsl(var(--sidebar-border))",
+          ring: "hsl(var(--sidebar-ring))",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      fontFamily: {
-        sans: ["Inter", "Roboto", ...fontFamily.sans],
-        heading: ["Montserrat", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
@@ -87,39 +85,21 @@ const config = {
           to: { height: "0", opacity: "0" },
         },
         "spin-slow": {
-          "0%": { transform: "rotate(0deg)" },
-          "100%": { transform: "rotate(360deg)" },
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(360deg)" },
         },
         "spin-slow-reverse": {
-          "0%": { transform: "rotate(360deg)" },
-          "100%": { transform: "rotate(0deg)" },
+          from: { transform: "rotate(0deg)" },
+          to: { transform: "rotate(-360deg)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "spin-slow": "spin-slow 20s linear infinite",
-        "spin-slow-reverse": "spin-slow-reverse 25s linear infinite",
+        "spin-slow-reverse": "spin-slow-reverse 15s linear infinite",
       },
     },
   },
-  plugins: [
-    require("tailwindcss-animate"),
-    require("@tailwindcss/typography"),
-    plugin(({ addUtilities }) => {
-      addUtilities({
-        ".text-shadow": {
-          textShadow: "0 2px 5px rgba(0, 0, 0, 0.5)",
-        },
-        ".text-shadow-sm": {
-          textShadow: "0 1px 2px rgba(0, 0, 0, 0.3)",
-        },
-        ".text-shadow-lg": {
-          textShadow: "0 2px 10px rgba(0, 0, 0, 0.7)",
-        },
-      });
-    }),
-  ],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 } satisfies Config;
-
-export default config;

@@ -64,7 +64,7 @@ const TestimonialCard = ({
           name="Star"
           size={16}
           className={
-            i < testimonial.rating ? "text-yellow-400" : "text-gray-400"
+            i < testimonial.rating ? "text-purple-300" : "text-gray-400"
           }
           fill={i < testimonial.rating ? "currentColor" : "none"}
         />
@@ -76,7 +76,7 @@ const TestimonialCard = ({
     </p>
 
     <div className="flex items-center">
-      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-yellow-300">
+      <div className="w-12 h-12 rounded-full overflow-hidden mr-4 border-2 border-purple-300">
         <img
           src={testimonial.avatar}
           alt={testimonial.name}
@@ -131,11 +131,11 @@ const TestimonialsSection = () => {
 
       {/* Background decorative elements */}
       <div
-        className="absolute left-0 top-1/4 w-64 h-64 bg-yellow-600/30 rounded-full filter blur-3xl opacity-20"
+        className="absolute left-0 top-1/4 w-64 h-64 bg-purple-600/30 rounded-full filter blur-3xl opacity-20"
         style={{ transform: "translate(-30%, -30%)" }}
       />
       <div
-        className="absolute right-0 bottom-1/4 w-80 h-80 bg-yellow-900/30 rounded-full filter blur-3xl opacity-20"
+        className="absolute right-0 bottom-1/4 w-80 h-80 bg-indigo-900/30 rounded-full filter blur-3xl opacity-20"
         style={{ transform: "translate(30%, 30%)" }}
       />
     </section>

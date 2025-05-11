@@ -24,14 +24,16 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 px-4 md:px-8 py-4 transition-all duration-300 ${
-        isScrolled ? "bg-white/10 backdrop-blur-md shadow-lg" : "bg-transparent"
+        isScrolled
+          ? "bg-indigo-900/80 backdrop-blur-md shadow-lg"
+          : "bg-transparent"
       }`}
     >
       <div className="container mx-auto flex items-center justify-between">
         <div className="flex items-center">
           <div className="relative w-10 h-10 mr-3">
-            <div className="absolute inset-0 bg-yellow-400 rounded-full opacity-70 animate-pulse"></div>
-            <div className="absolute inset-1 bg-yellow-600 rounded-full"></div>
+            <div className="absolute inset-0 bg-purple-400 rounded-full opacity-70 animate-pulse"></div>
+            <div className="absolute inset-1 bg-purple-600 rounded-full"></div>
           </div>
           <span className="text-white text-xl font-heading font-bold">
             Поток
@@ -73,7 +75,7 @@ const Navbar = () => {
           >
             Войти
           </Button>
-          <Button className="bg-yellow-500 hover:bg-yellow-600 text-black font-sans">
+          <Button className="bg-purple-600 hover:bg-purple-700 text-white font-sans">
             Попробовать бесплатно
           </Button>
         </div>
@@ -89,25 +91,25 @@ const Navbar = () => {
             <div className="flex flex-col space-y-6 pt-10 font-sans">
               <a
                 href="#features"
-                className="text-lg font-medium hover:text-yellow-300 transition-colors"
+                className="text-lg font-medium hover:text-purple-300 transition-colors"
               >
                 Возможности
               </a>
               <a
                 href="#testimonials"
-                className="text-lg font-medium hover:text-yellow-300 transition-colors"
+                className="text-lg font-medium hover:text-purple-300 transition-colors"
               >
                 Отзывы
               </a>
               <a
                 href="#pricing"
-                className="text-lg font-medium hover:text-yellow-300 transition-colors"
+                className="text-lg font-medium hover:text-purple-300 transition-colors"
               >
                 Тарифы
               </a>
               <a
                 href="#about"
-                className="text-lg font-medium hover:text-yellow-300 transition-colors"
+                className="text-lg font-medium hover:text-purple-300 transition-colors"
               >
                 О нас
               </a>
@@ -118,7 +120,7 @@ const Navbar = () => {
                 >
                   Войти
                 </Button>
-                <Button className="bg-yellow-500 hover:bg-yellow-600 text-black w-full">
+                <Button className="bg-purple-600 hover:bg-purple-700 text-white w-full">
                   Попробовать бесплатно
                 </Button>
               </div>
